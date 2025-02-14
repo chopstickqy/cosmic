@@ -1,0 +1,38 @@
+name: Cosmic blog deploy
+on:
+  push:
+    branches:
+      - master  # 监听 master 分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Hexo
+        run: npm install -g hexo-cli
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate Static Files
+        run: hexo generate
+
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          # 配置 .netrc 文件，使用 GitHub Token 认证
+          echo "machine github.com login ${{ github.actor }} password ${{ secrets.ACCESS_TOKEN }}" > ~/.netrc
+          # 配置 Git 用户信息
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # 部署 Hexo 生成的静态文件
+          npx hexo deploy
