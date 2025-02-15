@@ -1,8 +1,6 @@
 ---
 title: ISSUE & FEATURE COLLECTION
 date: YYYY-MM-DD HH:mm:ss
-categories: [Tech Points, Features, Issues]
-tags: [Technical, Functionality, Issue]
 ---
 
 
