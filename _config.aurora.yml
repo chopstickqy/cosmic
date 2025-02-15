@@ -16,7 +16,7 @@ site:
   link: '/'
   language: zh-CN
   multi_language: true
-  logo:
+  logo: https://chopstickqy.github.io/images/logo.png
   avatar:
   beian:
     number: ''
@@ -201,15 +201,15 @@ injects:
 #! ---------------------------------------------------------------
 #! Footer links
 #! ---------------------------------------------------------------
-footer_links:
-  - title: # main title
-    links:
-      - title: # link title
-        url: # URL link
-      - title: # link title
-        url: # URL link
-      - title: Friends # link of friends mode / 友链模式
-        mode: 'links'
+# footer_links:
+#   - title: # main title
+#     links:
+#       - title: # link title
+#         url: # URL link
+#       - title: # link title
+#         url: # URL link
+#       - title: Friends # link of friends mode / 友链模式
+#         mode: 'links'
 
 #! ---------------------------------------------------------------
 #! Highlighter Shiki
